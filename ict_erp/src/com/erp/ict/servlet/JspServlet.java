@@ -23,7 +23,11 @@ public class JspServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri = request.getRequestURI();
-		uri = "/WEB-INF" + uri + ".jsp";
+		if(uri.lastIndexOf(".jspf")!=-1) {
+			uri = "/WEB-INF" + uri;
+		}else {
+			uri = "/WEB-INF" + uri + ".jsp";
+		}
 		System.out.println("uri : " + uri);
 		RequestDispatcher rd = 
 				request.getRequestDispatcher(uri);

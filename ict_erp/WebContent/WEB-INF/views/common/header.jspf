@@ -1,0 +1,21 @@
+<%@page import="java.util.Map"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+//모든 jsp의 시작이 되는 파일
+//공통으로 처리할 변수나 session 유효성 처리등
+//을 하기 위해서 공통으로 뺀 jspf파일임.
+Map<String,String> userMap = 
+(Map<String,String>)session.getAttribute("user");
+
+String uri = request.getRequestURI();
+System.out.println(uri);
+if(uri.indexOf("login")==-1 &&
+uri.indexOf("join")==-1){
+	if(userMap==null){
+		RequestDispatcher rd = 
+				request.getRequestDispatcher("/views/user/login");
+		rd.forward(request,response);
+	}
+}
+%>

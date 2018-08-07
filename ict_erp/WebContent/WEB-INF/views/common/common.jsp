@@ -1,8 +1,13 @@
+<%@page import="com.ict.erp.vo.Menu"%>
+<%@page import="java.util.List"%>
+<%@page import="com.ict.erp.utils.MenuUtils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%
 String rPath = request.getContextPath() + "/";
 String title = "ERP EXAM";
+String uri = request.getRequestURI();
+List<Menu> mList = MenuUtils.getMenuList();
 %>
 <!DOCTYPE html>
 <html>
@@ -30,8 +35,19 @@ String title = "ERP EXAM";
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<%=rPath%>">Home</a></li>
-              <li><a href="<%=rPath%>views/user/login">로그인</a></li>
+<%
+for(Menu m : mList){
+	String active = "";
+	String url = rPath + m.getUrl();
+	String label = m.getLabel();
+	if(uri.indexOf(m.getUrl())!=-1){
+		active = "active";
+	}
+%>
+              <li class="<%=active%>"><a href="<%=url%>"><%=label%></a></li>
+<%
+}
+%>
             </ul>
         </div>
       	</div>

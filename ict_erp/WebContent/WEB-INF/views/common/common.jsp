@@ -34,5 +34,6 @@ String title = "ERP EXAM";
               <li><a href="<%=rPath%>views/user/login">로그인</a></li>
             </ul>
         </div>
+      	</div>
       </nav>
  </div>

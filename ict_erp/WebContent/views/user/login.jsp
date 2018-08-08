@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/common.jsp" %>
+<%@ include file="/views/common/common.jsp" %>
 <style>
 .login-form{
 	width:300px;
@@ -9,7 +9,7 @@
 </style>
 <body>
 <div class="login-form">
-    <form action="<%=rPath%>user/login" method="post">
+    <form action="<%=rPath%>user/login_ok.jsp" method="post">
         <h2 class="text-center">Sign in</h2>   
         <div class="form-group">
         	<div class="input-group">
@@ -24,7 +24,7 @@
             </div>
         </div>        
         <div class="form-group">
-            <button type="button" id="login" class="btn btn-primary login-btn btn-block">Sign in</button>
+            <button type="submit" id="login" class="btn btn-primary login-btn btn-block">Sign in</button>
         </div>
         <div class="clearfix">
             <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>

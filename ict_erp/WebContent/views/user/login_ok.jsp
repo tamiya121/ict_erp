@@ -38,16 +38,6 @@
 	}catch(Exception e){
 		e.printStackTrace();
 	}
-	if(id.equals("redfila")){
-		if(pwd.equals("r1r2r3")){
-			session.setAttribute("name","박경훈");
-			session.setAttribute("age","44");
-			session.setAttribute("addr","서울 강서구");
-			request.setAttribute("login",true);
-			response.sendRedirect(rPath + "views/index.jsp");
-			return;
-		}
-	}
 	request.setAttribute("login",false);
 	RequestDispatcher rd = request.getRequestDispatcher("/views/user/login.jsp");
 	rd.forward(request,response);

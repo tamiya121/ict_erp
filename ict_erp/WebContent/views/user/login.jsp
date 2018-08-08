@@ -5,6 +5,13 @@
 
 Boolean login = (Boolean)request.getAttribute("login");
 String name = (String)session.getAttribute("name");
+if(login!=null && !login){
+%>
+<script>
+	alert("아이디 비밀번호를 확인하세요!");
+</script>
+<%
+}
 %>
 <style>
 .login-form{
@@ -13,8 +20,6 @@ String name = (String)session.getAttribute("name");
 }
 </style>
 <body>
-<%=login%>
-<%=name %>
 <div class="login-form">
     <form action="<%=rPath%>views/user/login_ok.jsp" method="post">
         <h2 class="text-center">Sign in</h2>   

@@ -9,18 +9,18 @@
 </style>
 <body>
 <div class="login-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="<%=rPath%>user/login" method="post">
         <h2 class="text-center">Sign in</h2>   
         <div class="form-group">
         	<div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input type="text" class="form-control" id="id" placeholder="Username" required="required">				
+                <input type="text" class="form-control" id="id" name="id" placeholder="Username" required="required">				
             </div>
         </div>
 		<div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <input type="password" class="form-control" id="pwd" placeholder="Password" required="required">				
+                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password" required="required">				
             </div>
         </div>        
         <div class="form-group">

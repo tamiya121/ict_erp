@@ -1,37 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/common.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common/common.jsp"%>
 <style>
-.login-form{
-	width:300px;
-	margin:0 auto;
+.login-form {
+	width: 300px;
+	margin: 0 auto;
 }
 </style>
 <body>
-<div class="login-form">
-    <form action="/examples/actions/confirmation.php" method="post">
-        <h2 class="text-center">Sign in</h2>   
-        <div class="form-group">
-        	<div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input type="text" class="form-control" id="id" placeholder="Username" required="required">				
-            </div>
-        </div>
-		<div class="form-group">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <input type="password" class="form-control" id="pwd" placeholder="Password" required="required">				
-            </div>
-        </div>        
-        <div class="form-group">
-            <button type="button" id="login" class="btn btn-primary login-btn btn-block">Sign in</button>
-        </div>
-        <div class="clearfix">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-            <a href="#" class="pull-right" id="forgotPwd">Forgot Password?</a>
-        </div>
-    </form>
-    <p class="text-center text-muted small">Don't have an account? <a href="#" id="join">Sign up here!</a></p>
-</div>
+	<div class="container">
+		<div class="row centered-form">
+			<div
+				class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Please sign up
+						</h3>
+					</div>
+					<div class="panel-body">
+						<form role="form">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" name="first_name" id="first_name"
+											class="form-control input-sm" placeholder="First Name">
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" name="last_name" id="last_name"
+											class="form-control input-sm" placeholder="Last Name">
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<input type="email" name="email" id="email"
+									class="form-control input-sm" placeholder="Email Address">
+							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="password" name="password" id="password"
+											class="form-control input-sm" placeholder="Password">
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="password" name="password_confirmation"
+											id="password_confirmation" class="form-control input-sm"
+											placeholder="Confirm Password">
+									</div>
+								</div>
+							</div>
+
+							<input type="submit" value="Register"
+								class="btn btn-info btn-block">
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

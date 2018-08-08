@@ -21,7 +21,7 @@ List<Menu> mList = MenuUtils.getMenuList();
 <script src="<%=rPath%>bs3/js/bootstrap.js"></script>
 <script src="<%=rPath%>bs3/js/common.js"></script>
 </head>
-<div class="container">
+<div class="container" style="margin-top:5px">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">

@@ -16,9 +16,13 @@ public class MenuUtils {
 			menuList.add(m);
 			m = new Menu("views/user/login","login","Login");
 			menuList.add(m);
-			m = new Menu("views/user/signup","signup","SingUp");
+			m = new Menu("views/user/signup","signup","Signup");
 			menuList.add(m);
 		}
 		return menuList;
+	}
+	
+	public static String getCommand(String uri) {
+		return uri.substring(uri.lastIndexOf("/")+1);
 	}
 }

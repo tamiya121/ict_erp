@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jsp" %>
 <body>
-난 jsp파일
+	<div class="container">
+		ERP System에 오신것을 환영 합니다.
+	</div>
 </body>
 </html>

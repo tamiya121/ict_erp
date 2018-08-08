@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/common.jsp" %>
+<%
+
+Boolean login = (Boolean)request.getAttribute("login");
+String name = (String)session.getAttribute("name");
+%>
 <style>
 .login-form{
 	width:300px;
@@ -8,6 +13,8 @@
 }
 </style>
 <body>
+<%=login%>
+<%=name %>
 <div class="login-form">
     <form action="<%=rPath%>views/user/login_ok.jsp" method="post">
         <h2 class="text-center">Sign in</h2>   

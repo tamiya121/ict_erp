@@ -9,7 +9,7 @@
 </style>
 <body>
 <div class="login-form">
-    <form action="<%=rPath%>user/login_ok.jsp" method="post">
+    <form action="<%=rPath%>views/user/login_ok.jsp" method="post">
         <h2 class="text-center">Sign in</h2>   
         <div class="form-group">
         	<div class="input-group">

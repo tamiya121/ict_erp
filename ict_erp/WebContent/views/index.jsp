@@ -3,7 +3,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/common.jsp" %>
 <%
-Map<String,String> user = (Map<String,String>)session.getAttribute("user");
 String name = user.get("name");
 %>
 <body>

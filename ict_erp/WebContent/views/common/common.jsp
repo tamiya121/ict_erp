@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page import="com.ict.erp.vo.Menu"%>
 <%@page import="java.util.List"%>
 <%@page import="com.ict.erp.utils.MenuUtils"%>
@@ -8,6 +9,14 @@ String rPath = request.getContextPath() + "/";
 String title = "ERP EXAM";
 String uri = request.getRequestURI();
 List<Menu> mList = MenuUtils.getMenuList();
+
+if(session.getAttribute("user")==null){
+	if(uri.indexOf("login")==-1){
+		response.sendRedirect(rPath + "views/user/login.jsp");
+		return;
+	}
+}
+Map<String,String> user = (Map<String,String>)session.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html>

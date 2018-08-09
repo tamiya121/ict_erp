@@ -23,15 +23,15 @@
 		ps.setString(2,pwd);
 		ResultSet rs = ps.executeQuery();
 		while(rs.next()){
-			Map<String,String> user = 
+			Map<String,String> usr = 
 					new HashMap<String,String>();
-			user.put("name",rs.getString("miName"));
-			user.put("email",rs.getString("miEmail"));
-			user.put("id",rs.getString("miId"));
-			user.put("dino",rs.getString("diNo"));
-			user.put("mino",rs.getString("miNo"));
-			user.put("lvl",rs.getString("lvl"));
-			session.setAttribute("user",user);
+			usr.put("name",rs.getString("miName"));
+			usr.put("email",rs.getString("miEmail"));
+			usr.put("id",rs.getString("miId"));
+			usr.put("dino",rs.getString("diNo"));
+			usr.put("mino",rs.getString("miNo"));
+			usr.put("lvl",rs.getString("lvl"));
+			session.setAttribute("user",usr);
 			response.sendRedirect(rPath + "views/index.jsp");
 			return;
 		}

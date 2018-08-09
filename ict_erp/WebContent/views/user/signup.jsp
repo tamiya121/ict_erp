@@ -1,6 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/views/common/common.jsp"%>
+<%
+request.setCharacterEncoding("utf-8");
+String miId = request.getParameter("miId");
+String miPwd = request.getParameter("miPwd");
+String miName = request.getParameter("miName");
+String miEmail = request.getParameter("miEmail");
+String miEtc = request.getParameter("miEtc");
+String lvl = request.getParameter("lvl");
+String msg = (String)request.getAttribute("msg");
+if(msg!=null){
+%>
+<script>
+	alert("<%=msg%>");
+</script>
+<%
+}
+%>
 <style>
 .login-form {
 	width: 300px;

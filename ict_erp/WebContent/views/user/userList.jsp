@@ -23,6 +23,36 @@ public List<Map<String,String>> getMemberList(){
 }
 %>
 <body>
-<%=getMemberList()%>
+<div class="container">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>아이디</th>
+				<th>이메일주소</th>
+				<th>생성자</th>
+				<th>부서번호</th>
+			</tr>
+		</thead>
+		<tbody>
+<%
+List<Map<String,String>> memberList = getMemberList();
+for(Map<String,String> member : memberList){
+%>
+			<tr>
+				<td><%=member.get("MINO")%></td>
+				<td><%=member.get("MINAME")%></td>
+				<td><%=member.get("MIID")%></td>
+				<td><%=member.get("MIEMAIL")%></td>
+				<td><%=member.get("CREUSR")%></td>
+				<td><%=member.get("DINO")%></td>
+			</tr>
+<%
+}
+%>
+		</tbody>
+	</table>
+</div>
 </body>
 </html>

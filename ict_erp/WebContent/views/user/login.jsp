@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/views/common/common.jsp" %>
 <%
-
 Boolean login = (Boolean)request.getAttribute("login");
 String name = (String)session.getAttribute("name");
 if(login!=null && !login){

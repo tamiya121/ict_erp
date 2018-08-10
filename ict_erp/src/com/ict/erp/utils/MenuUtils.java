@@ -10,20 +10,18 @@ public class MenuUtils {
 			
 	
 	public static List<Menu> getMenuList(Object obj){
-		if(menuList==null) {
-			menuList = new ArrayList<Menu>();
-			Menu m = new Menu("views/index.jsp","home","Home");
+		menuList = new ArrayList<Menu>();
+		Menu m = new Menu("views/index.jsp","home","Home");
+		menuList.add(m);
+		if(obj==null) {
+			m = new Menu("views/user/login.jsp","login","Login");
 			menuList.add(m);
-			if(obj==null) {
-				m = new Menu("views/user/login.jsp","login","Login");
-				menuList.add(m);
-			}else {
-				m = new Menu("views/user/logout.jsp","logout","Logout");
-				menuList.add(m);
-			}
-			m = new Menu("views/user/signup.jsp","signup","Signup");
+		}else {
+			m = new Menu("views/user/logout.jsp","logout","Logout");
 			menuList.add(m);
 		}
+		m = new Menu("views/user/signup.jsp","signup","Signup");
+		menuList.add(m);
 		return menuList;
 	}
 	

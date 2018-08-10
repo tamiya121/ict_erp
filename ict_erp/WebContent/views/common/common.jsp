@@ -4,7 +4,6 @@
 <%@page import="com.ict.erp.utils.MenuUtils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
-<%! @SuppressWarnings("unchecked") %>
 <%
 String rPath = request.getContextPath() + "/";
 String title = "ERP EXAM";
@@ -17,6 +16,7 @@ if(session.getAttribute("user")==null){
 		return;
 	}
 }
+@SuppressWarnings("all")
 Map<String,String> user = (Map<String,String>)session.getAttribute("user");
 %>
 <!DOCTYPE html>

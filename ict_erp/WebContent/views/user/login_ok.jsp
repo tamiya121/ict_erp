@@ -1,3 +1,4 @@
+<%@page import="com.ict.erp.common.DBCon"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.sql.*"%>
@@ -8,14 +9,9 @@
 	request.setCharacterEncoding("utf-8");
 	String id = request.getParameter("id");
 	String pwd = request.getParameter("pwd");
-	
 	Connection con = null;
-	String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	String cId = "ictu";
-	String cPwd = "12345678";
 	try{
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		con = DriverManager.getConnection(url,cId,cPwd);
+		con = DBCon.getCon();
 		String sql = "select * from member_info";
 		sql += " where miId=? and miPwd=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -37,6 +33,8 @@
 		}
 	}catch(Exception e){
 		e.printStackTrace();
+	}finally{
+		DBCon.close();
 	}
 	request.setAttribute("login",false);
 	RequestDispatcher rd = request.getRequestDispatcher("/views/user/login.jsp");

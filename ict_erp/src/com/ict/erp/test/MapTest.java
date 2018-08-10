@@ -19,5 +19,7 @@ public class MapTest {
 		List<Map<String,String>> mapList;
 		mapList = new ArrayList<Map<String,String>>();
 		mapList.add(map);
+		
+		System.out.println("\"abc\"");
 	}
 }

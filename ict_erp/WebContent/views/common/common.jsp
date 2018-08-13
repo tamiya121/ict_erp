@@ -10,12 +10,12 @@ String title = "ERP EXAM";
 String uri = request.getRequestURI();
 List<Menu> mList = MenuUtils.getMenuList(session.getAttribute("user"));
 
-if(session.getAttribute("user")==null){
+/* if(session.getAttribute("user")==null){
 	if(uri.indexOf("login")==-1){
 		response.sendRedirect(rPath + "views/user/login.jsp");
 		return;
 	}
-}
+} */
 @SuppressWarnings("all")
 Map<String,String> user = (Map<String,String>)session.getAttribute("user");
 %>

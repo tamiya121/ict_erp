@@ -22,6 +22,8 @@ public class MenuUtils {
 		}
 		m = new Menu("views/user/signup.jsp","signup","Signup");
 		menuList.add(m);
+		m = new Menu("views/user/userList.jsp","userlist","User List");
+		menuList.add(m);
 		return menuList;
 	}
 	

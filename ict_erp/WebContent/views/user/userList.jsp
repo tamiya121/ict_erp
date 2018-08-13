@@ -15,10 +15,15 @@ public List<Map<String,String>> getMemberList(){
 	List<Map<String,String>> memberList = null;
 	DBUtils dbu = new DBUtils(DBCon.getCon());
 	try{
-		memberList = dbu.selectList("select * from member_info ");
+		String sql = "select MINO, MINAME, MIID, MIEMAIL,"; 
+		sql += " (SELECT MI2.MIID FROM MEMBER_INFO MI2 WHERE MI2.MINO= MI.CREUSR) CREUSR,"; 
+		sql += " (SELECT DI.DINAME FROM DEPART_INFO DI WHERE DI.DINO = MI.DINO) DINAME"; 
+		sql += " FROM MEMBER_INFO MI";
+		memberList = dbu.selectList(sql);
 	}catch(SQLException e){
 		System.out.println(e);
 	}
+	DBCon.close();
 	return memberList;
 }
 %>
@@ -32,7 +37,7 @@ public List<Map<String,String>> getMemberList(){
 				<th>아이디</th>
 				<th>이메일주소</th>
 				<th>생성자</th>
-				<th>부서번호</th>
+				<th>부서이름</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -46,7 +51,7 @@ for(Map<String,String> member : memberList){
 				<td><%=member.get("MIID")%></td>
 				<td><%=member.get("MIEMAIL")%></td>
 				<td><%=member.get("CREUSR")%></td>
-				<td><%=member.get("DINO")%></td>
+				<td><%=member.get("DINAME")%></td>
 			</tr>
 <%
 }

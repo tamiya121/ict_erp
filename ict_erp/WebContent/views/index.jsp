@@ -7,7 +7,10 @@ String name = user.get("name");
 %>
 <body>
 	<div class="container">
-		<%=name%>님 ERP System에 오신것을 환영 합니다.
+		<%=name%>님 ERP System에 오신것을 환영 합니다.<br>
+		
+<%="application : " + application.getAttribute("title")%>
+<%="<br>session : " + session.getAttribute("id")%> 
 	</div>
 </body>
 </html>

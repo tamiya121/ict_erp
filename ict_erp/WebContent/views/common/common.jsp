@@ -5,7 +5,10 @@
 <%@page import="com.ict.erp.utils.MenuUtils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
+
 String rPath = request.getContextPath() + "/";
 String title = "ERP EXAM";
 String uri = request.getRequestURI();
@@ -28,7 +31,7 @@ Map<String,String> user = (Map<String,String>)session.getAttribute("user");
 <html>
 <head>
 <meta charset="UTF-8">
-<title><%=title %></title>
+<title><%=title%></title>
 <link rel="stylesheet" href="<%=rPath%>bs3/css/bootstrap.css"/>
 <link rel="stylesheet" href="<%=rPath%>bs3/css/bootstrap-theme.css"/>
 <link rel="stylesheet" href="<%=rPath%>bs3/css/common.css"/>

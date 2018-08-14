@@ -30,5 +30,18 @@ public class DepartServiceImpl implements DepartService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public static void main(String[] args) {
+		DepartService ds = new DepartServiceImpl();
+		try {
+			List<DepartInfo> departList =  ds.getDepartList();
+			System.out.println(departList);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 
 }

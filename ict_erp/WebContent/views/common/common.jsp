@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page import="com.ict.erp.vo.Menu"%>
 <%@page import="java.util.List"%>
@@ -10,12 +11,16 @@ String title = "ERP EXAM";
 String uri = request.getRequestURI();
 List<Menu> mList = MenuUtils.getMenuList(session.getAttribute("user"));
 
-/* if(session.getAttribute("user")==null){
-	if(uri.indexOf("login")==-1){
+if(session.getAttribute("user")==null){
+	/* if(uri.indexOf("login")==-1){
 		response.sendRedirect(rPath + "views/user/login.jsp");
 		return;
-	}
-} */
+	} */
+	Map<String,String> user = 
+	new HashMap<String,String>();
+	user.put("name","개발자");
+	session.setAttribute("user",user);
+}
 @SuppressWarnings("all")
 Map<String,String> user = (Map<String,String>)session.getAttribute("user");
 %>

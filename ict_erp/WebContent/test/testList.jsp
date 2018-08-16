@@ -26,7 +26,7 @@ while(rs.next()){
 %>
 			<tr>
 				<td><input type="checkbox" name="chk" value="<%=rs.getInt("itNo")%>"></td>
-				<td><%=rs.getInt("itNo")%></td>
+				<td><a href="<%=rPath%>test/testView.jsp?itNo=<%=rs.getInt("itNo")%>"><%=rs.getInt("itNo")%></a></td>
 				<td><%=rs.getString("itText")%></td>
 				<td><%=rs.getString("itPwd")%></td>
 			</tr>			

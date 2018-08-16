@@ -11,18 +11,18 @@ String itPwd = request.getParameter("itPwd");
 
 
 Connection con = DBCon.getCon();
-String sql = "insert into ict_test values(?,?,?)";
+String sql = "update ict_test set itText=?, itPwd=? where itNo=?";
 PreparedStatement ps = con.prepareStatement(sql);
-ps.setString(1,itNo);
-ps.setString(2,itText);
-ps.setString(3,itPwd);
+ps.setString(1,itText);
+ps.setString(2,itPwd);
+ps.setString(3,itNo);
 
 int cnt = ps.executeUpdate();
 if(cnt==1){
 	con.commit();
 %>
 	<script>
-		alert("정상 저장!!");
+		alert("정상 수정!!");
 		location.href="<%=rPath%>test/testList.jsp";
 	</script>
 <%

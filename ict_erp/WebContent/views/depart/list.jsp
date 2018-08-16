@@ -43,6 +43,9 @@ for(DepartInfo di : diList){
 			</tr>
 		</thead>
 		<tbody>
+<%
+String str = "abc";
+%>
 		<c:forEach	var="di" items="${diList}">
 			<tr>
 				<td>${di.diNo}</td>

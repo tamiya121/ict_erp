@@ -32,14 +32,15 @@ public class ArrayTest {
 		return cnt;
 	}
 	public static void main(String[] args) {
-		String str = "a,b,c";
-		int idx = indexOf(str,",");
-		System.out.println(",의 첫번째 위치 : " + idx);
-		idx = indexOf(str,"d");
-		System.out.println("d의 첫번째 위치 : " + idx);
-		idx = lastIndexOf(str,",");
-		System.out.println(",의 마지막 위치 : " + idx);
-		int cnt = count(str,",");
-		System.out.println(",의 갯수 " + cnt);
+		int[] arr = new int[]{1,2,3};
+		
+		for(int i=0;i<arr.length;i++) {
+			int a = arr[0];
+			System.out.println(a);
+		}
+		
+		for(int a:arr) {
+			System.out.println(a);
+		}
 	}
 }

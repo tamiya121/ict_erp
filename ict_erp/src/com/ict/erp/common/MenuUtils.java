@@ -1,4 +1,4 @@
-package com.ict.erp.utils;
+package com.ict.erp.common;
 
 import java.util.ArrayList;
 import java.util.List;

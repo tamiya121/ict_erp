@@ -12,13 +12,20 @@
     <servlet-name>ViewServlet</servlet-name>
     <url-pattern>/views/*</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-name>LevelServlet</servlet-name>
-  	<servlet-class>com.ict.erp.controller.LevelServlet</servlet-class>
+    <servlet-name>LevelServlet</servlet-name>
+    <servlet-class>com.ict.erp.controller.LevelServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>LevelServlet</servlet-name>
-  	<url-pattern>/level/*</url-pattern>
+    <servlet-name>LevelServlet</servlet-name>
+    <url-pattern>/level/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>com.ict.erp.controller.TestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/test/*</url-pattern>
   </servlet-mapping>
 </web-app>

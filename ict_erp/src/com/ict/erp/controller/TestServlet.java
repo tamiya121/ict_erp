@@ -38,6 +38,9 @@ public class TestServlet extends HttpServlet {
 					}
 				}
 				request.setAttribute("tiList", ts.getTestList(ti));
+			}else if(cmd.equals("testView")) {
+				int tiNum = Integer.parseInt(request.getParameter("tiNum"));
+				request.setAttribute("testInfo", ts.getTestInf(tiNum));
 			}
 		}catch(Exception e) {
 			uri = "/error";

@@ -3,6 +3,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/common.jsp" %>
+<style>
+	tr>td{
+		cursor:pointer;
+	}
+</style>
 <body>
 <div class="container">
 	<div class="container">
@@ -30,7 +35,7 @@
 List<TestInfo> tiList = (List<TestInfo>)request.getAttribute("tiList");
 for(TestInfo ti : tiList){
 %>
-			<tr>
+			<tr onclick="goPage(<%=ti.getTiNum()%>)">
 				<td><%=ti.getTiNum()%></td>
 				<td><%=ti.getTiId()%></td>
 				<td><%=ti.getTiName()%></td>
@@ -54,6 +59,9 @@ for(TestInfo ti : tiList){
 		
 		location.href="<%=rPath%>/test/testList?shType=" + shType + "&shText=" + shText;
 		
+	}
+	function goPage(tiNum){
+		location.href='<%=rPath%>/test/testView?tiNum=' + tiNum;
 	}
 </script>
 </body>

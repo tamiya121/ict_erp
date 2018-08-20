@@ -55,4 +55,24 @@ public class TestDAOImpl implements TestDAO {
 		}
 	}
 
+	@Override
+	public TestInfo selectTestInfo(int tiNum) throws SQLException {
+		try {
+			Connection con = DBCon.getCon();
+			String sql = "select * from test_info where tiNum=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, tiNum);
+			ResultSet rs = ps.executeQuery();
+			TestInfo ti = null;
+			if(rs.next()) {
+				ti = new TestInfo(rs.getInt("tiNum"),rs.getString("tiId"), rs.getString("tiName"), rs.getString("tiText"));
+			}
+			return ti;
+		}catch(SQLException e) {
+			throw e;
+		}finally {
+			DBCon.close();
+		}
+	}
+
 }

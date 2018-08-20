@@ -15,5 +15,11 @@ public class TestServiceImpl implements TestService {
 		// TODO Auto-generated method stub
 		return tdao.selectList(ti);
 	}
+	
+	@Override
+	public TestInfo getTestInf(int tiNum) throws SQLException {
+		// TODO Auto-generated method stub
+		return tdao.selectTestInfo(tiNum);
+	}
 
 }

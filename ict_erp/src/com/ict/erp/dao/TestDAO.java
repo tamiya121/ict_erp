@@ -7,4 +7,5 @@ import com.ict.erp.vo.TestInfo;
 
 public interface TestDAO {
 	public List<TestInfo> selectList(TestInfo ti) throws SQLException;
+	public TestInfo selectTestInfo(int tiNum) throws SQLException;
 }

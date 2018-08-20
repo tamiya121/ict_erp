@@ -16,7 +16,6 @@ public class ViewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri = request.getRequestURI();
 		uri = "/WEB-INF" + uri + ".jsp";
-		System.out.println(request.getAttribute("str"));
 		RequestDispatcher rd = request.getRequestDispatcher(uri);
 		rd.forward(request, response);
 	}

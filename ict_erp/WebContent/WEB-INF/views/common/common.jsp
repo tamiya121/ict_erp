@@ -3,6 +3,7 @@
 <%
 String rPath = request.getContextPath();
 String title = "클라우드 프로젝트";
+String uri = request.getRequestURI();
 %>
 <!doctype html>
 <html>

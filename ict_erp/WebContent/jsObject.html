@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+이름 : <input type="text" id="name"><br>
+나이 : <input type="text" id="age"><br>
+<div id="btns">
+	<button>메모리 저장</button>
+	<button>메모리 보기</button>
+</div>
+<table border="1">
+	<thead>
+		<tr>
+			<th>이름</th>
+			<th>나이</th>
+			<th>삭제</th>
+		</tr>
+	</thead>
+	<tbody id="rTbody">
+	</tbody>
+</table>
+<script>
+	var btns = document.querySelectorAll('button');
+	var persons = [];
+	btns[0].onclick = function(){
+		var name = document.querySelector('#name').value;
+		var age = document.querySelector('#age').value;
+		persons[persons.length] = {name:name,age:age};
+	}
+	
+	btns[1].onclick = function(){
+		makeTbody();
+	}
+	function makeTbody(){
+		var html='';
+		for(var i=0;i<persons.length;i++){
+			var p = persons[i];
+			html += '<tr>';
+			html += '<td>' + p.name +'</td>';
+			html += '<td>' + p.age +'</td>';
+			html += '<td><button onclick="deletePerson(' + i + ')">삭제</button></td>';
+			html += '</tr>';
+		}
+		document.querySelector('#rTbody').innerHTML = html;
+	}
+	function deletePerson(idx){
+		persons.splice(idx,1);
+		makeTbody();
+	}
+</script>
+</body>
+</html>

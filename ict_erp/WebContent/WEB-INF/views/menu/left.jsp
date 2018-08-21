@@ -1,29 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+String rPath = request.getContextPath();
+%>
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
+                <li class="sidebar-brand active" >
+                    <a href="/">
+                    	ICT ERP
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="<%=rPath%>/test/testList">사원관리</a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a href="#">부서관리</a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
+                    <a href="#">이력서</a>
                 </li>
                 <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
+                    <a href="#">Git</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>

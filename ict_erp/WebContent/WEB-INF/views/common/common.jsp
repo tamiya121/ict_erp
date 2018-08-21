@@ -9,10 +9,10 @@ String title = "클라우드 프로젝트";
 <head>
 	<meta charset="utf-8">
 	<title><%=title%></title>
-<link rel="stylesheet" href="<%=rPath%>/bs3/css/bootstrap.css"/>
-<link rel="stylesheet" href="<%=rPath%>/bs3/css/bootstrap-theme.css"/>
-<link rel="stylesheet" href="<%=rPath%>/bs3/css/common.css"/>
-<script src="<%=rPath%>/bs3/js/jquery-3.3.1.js"></script>
-<script src="<%=rPath%>/bs3/js/bootstrap.js"></script>
-<script src="<%=rPath%>/bs3/js/common.js"></script>
+    <link href="<%=rPath%>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=rPath%>/css/simple-sidebar.css" rel="stylesheet">
+	<link href="<%=rPath%>/css/common.css" rel="stylesheet"/>
+	<script src="<%=rPath%>/vendor/jquery/jquery.min.js"></script>
+    <script src="<%=rPath%>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=rPath%>/vendor/common.js"></script>
 </head>

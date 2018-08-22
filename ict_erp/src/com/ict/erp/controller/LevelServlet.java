@@ -2,7 +2,10 @@ package com.ict.erp.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,6 +33,31 @@ public class LevelServlet extends HttpServlet {
 				uri = "/views/notFound";
 			}else if(cmd.equals("levelList")) {
 				request.setAttribute("liList", ls.getLiList(null));
+			}else if(cmd.equals("deleteLevelList")) {
+				String[] liNumStrs = request.getParameterValues("liNum");
+				int[] liNums = new int[liNumStrs.length];
+				for(int i=0;i<liNumStrs.length;i++) {
+					liNums[i] = Integer.parseInt(liNumStrs[i]);
+				}
+				request.setAttribute("rMap", ls.deleteLiList(liNums));
+				uri = "/views/level/levelList";
+			}else if(cmd.equals("saveLevelList")){
+				List<LevelInfo> iList = new ArrayList<LevelInfo>();
+				String[] liNames = request.getParameterValues("liName");
+				String[] liLevels = request.getParameterValues("liLevel");
+				String[] liDesces = request.getParameterValues("liDesc");
+				for(int i=0;i<liNames.length;i++) {
+					int level = Integer.parseInt(liLevels[i]);
+					LevelInfo li = new LevelInfo(0,level,liNames[i],liDesces[i]);
+					iList.add(li);
+				}
+				Map<String,List<LevelInfo>> map = 
+						new HashMap<String,List<LevelInfo>>();
+				map.put("iList", iList);
+				map.put("uList", new ArrayList<LevelInfo>());
+				Map<String,Object> rMap = ls.insertNUpdateLiList(map);
+				request.setAttribute("rMap", rMap);
+				uri = "/views/level/levelList";
 			}else {
 				uri = "/views/notFound";
 			}
@@ -41,7 +69,7 @@ public class LevelServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(uri);
 		rd.forward(request, response);
 	}
-
+//erd
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

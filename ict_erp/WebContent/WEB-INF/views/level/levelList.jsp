@@ -66,7 +66,7 @@
 			obj.innerHTML = html;
 			emptyList = false;
 		}else{
-			obj.innerHTML += html;
+			obj.insertAdjacentHTML('beforeend',html);
 		}
 	}
 	function makeParam(name,option){

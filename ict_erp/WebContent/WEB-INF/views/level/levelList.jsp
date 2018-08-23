@@ -32,10 +32,10 @@
 			<c:forEach items="${liList}" var="li">
 				<tr>
 					<td><input type="checkbox" name="liNum" value="${li.liNum}"></td>
-					<td>${li.liNum}</td>
-					<td>${li.liLevel}</td>
-					<td>${li.liName}</td>
-					<td>${li.liDesc}</td>
+					<td>${li.liNum}</td> 
+					<td><input type="number" value="${li.liLevel}" name="uLiLevel"></td>
+					<td><input type="text" value="${li.liName}" name="uLiName"></td>
+					<td><input type="text" value="${li.liDesc}" name="uLiDesc"></td>
 				</tr>
 			</c:forEach>
 			<c:if test="${empty liList}">
@@ -108,6 +108,10 @@
 		var params = makeParam('liLevel');
 		params += makeParam('liName');
 		params += makeParam('liDesc');
+		params += makeParam('liNum');
+		params += makeParam('uLiLevel');
+		params += makeParam('uLiName');
+		params += makeParam('uLiDesc');
 		location.href='/level/saveLevelList?' + params;
 	}
 	function chkAll(f){

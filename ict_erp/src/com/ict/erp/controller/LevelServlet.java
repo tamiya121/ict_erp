@@ -35,7 +35,7 @@ public class LevelServlet extends HttpServlet {
 				LevelInfo li = null;
 				String scType = request.getParameter("scType");
 				String scText = request.getParameter("scText");
-				if(scType!=null) {
+				if(scType!=null && scText!=null && !scText.equals("")) {
 					if(scType.equals("liName")) {
 						li = new LevelInfo(0,0,scText,null);
 					}else {

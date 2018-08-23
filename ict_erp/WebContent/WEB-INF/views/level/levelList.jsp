@@ -53,6 +53,7 @@
 	</div>
 </div>
 <script>
+	
 	$(document).ready(function(){
 		document.querySelector('input[name=scText]').focus(); 
 	});

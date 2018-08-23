@@ -32,7 +32,17 @@ public class LevelServlet extends HttpServlet {
 			if(cmd==null|| cmd.equals("")) {
 				uri = "/views/notFound";
 			}else if(cmd.equals("levelList")) {
-				request.setAttribute("liList", ls.getLiList(null));
+				LevelInfo li = null;
+				String scType = request.getParameter("scType");
+				String scText = request.getParameter("scText");
+				if(scType!=null) {
+					if(scType.equals("liName")) {
+						li = new LevelInfo(0,0,scText,null);
+					}else {
+						li = new LevelInfo(0,0,null,scText);
+					}
+				}
+				request.setAttribute("liList", ls.getLiList(li));
 			}else if(cmd.equals("deleteLevelList")) {
 				String[] liNumStrs = request.getParameterValues("liNum");
 				int[] liNums = new int[liNumStrs.length];

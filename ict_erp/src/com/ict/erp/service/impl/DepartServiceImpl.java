@@ -15,13 +15,11 @@ public class DepartServiceImpl implements DepartService {
 	private DepartDAO ddao = new DepartDAOImpl();
 	@Override
 	public List<DepartInfo> getDepartInfoList(DepartInfo di) throws SQLException {
-		PageInfo pi = di.getPi();
-		pi.setlNum(pi.getPage()*pi.getPageSize());
-		pi.setsNum((pi.getPage()-1) * pi.getPageSize()+1);
 		ddao.setConnection(DBCon.getCon());
 		try {
-			pi.setTotalCnt(ddao.totalCount("depart_info"));
-			return ddao.selectDepartInfoList(di);	
+			PageInfo pi = di.getPi();
+			pi.initPage(ddao.totalCount("depart_info"),20,20);
+			return ddao.selectDepartInfoList(di);
 		}catch(SQLException e) {
 			throw e;
 		}finally {

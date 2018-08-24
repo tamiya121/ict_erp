@@ -38,6 +38,7 @@ public class DepartServlet extends HttpServlet {
 				DepartInfo di = new DepartInfo();
 				di.setPi(pi);
 				req.setAttribute("diList",ds.getDepartInfoList(di));
+				req.setAttribute("page", pi);
 			}else if(cmd.equals("depart")) {
 				
 			}else {

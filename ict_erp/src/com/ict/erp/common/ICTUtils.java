@@ -16,5 +16,4 @@ public class ICTUtils {
 	public static String getJSPPage(String uri) {
 		return PRE_FIX + uri + SUF_FIX;
 	}
-	
 }

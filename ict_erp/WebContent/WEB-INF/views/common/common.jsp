@@ -7,6 +7,7 @@ String rPath = request.getContextPath();
 String title = "클라우드 프로젝트";
 String uri = request.getRequestURI();
 %>
+<c:set var="rPath" value="<%=rPath%>"/>
 <!doctype html>
 <html>
 <head>

@@ -4,16 +4,19 @@ public class PageInfo {
 	private int sNum;
 	private int lNum;
 	private int page = 1;
-	private int pageSize = 10;
-	private int block = 10;
+	private int pageSize;
+	private int blockSize;
+	private int totalBlock;
 	private int totalPage;
 	private int totalCnt;
+	private int sBlock;
+	private int lBlock;
 	
-	public int getPageSize() {
-		return pageSize;
+	public int getTotalBlock() {
+		return totalBlock;
 	}
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
+	public void setTotalBlock(int totalBlock) {
+		this.totalBlock = totalBlock;
 	}
 	public int getsNum() {
 		return sNum;
@@ -33,11 +36,17 @@ public class PageInfo {
 	public void setPage(int page) {
 		this.page = page;
 	}
-	public int getBlock() {
-		return block;
+	public int getPageSize() {
+		return pageSize;
 	}
-	public void setBlock(int block) {
-		this.block = block;
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+	public int getBlockSize() {
+		return blockSize;
+	}
+	public void setBlockSize(int blockSize) {
+		this.blockSize = blockSize;
 	}
 	public int getTotalPage() {
 		return totalPage;
@@ -51,11 +60,53 @@ public class PageInfo {
 	public void setTotalCnt(int totalCnt) {
 		this.totalCnt = totalCnt;
 	}
-	@Override
-	public String toString() {
-		return "PageInfo [sNum=" + sNum + ", lNum=" + lNum + ", page=" + page + ", block=" + block + ", totalPage="
-				+ totalPage + ", totalCnt=" + totalCnt + "]";
+	public int getsBlock() {
+		return sBlock;
+	}
+	public void setsBlock(int sBlock) {
+		this.sBlock = sBlock;
+	}
+	public int getlBlock() {
+		return lBlock;
+	}
+	public void setlBlock(int lBlock) {
+		this.lBlock = lBlock;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "PageInfo [sNum=" + sNum + ", lNum=" + lNum + ", page=" + page + ", pageSize=" + pageSize
+				+ ", blockSize=" + blockSize + ", totalBlock=" + totalBlock + ", totalPage=" + totalPage + ", totalCnt="
+				+ totalCnt + ", sBlock=" + sBlock + ", lBlock=" + lBlock + "]";
+	}
+	public void initPage(int totalCnt) {
+		initPage(totalCnt, 10);
+	}
+	public void initPage(int totalCnt,int pageSize) {
+		initPage(totalCnt, pageSize,10);		
+	}
+	public void initPage(int totalCnt, int pageSize, int blockSize) {
+		this.totalCnt = totalCnt;
+		if(pageSize!=0) {
+			this.pageSize = pageSize;
+		}
+		if(blockSize!=0) {
+			this.blockSize = blockSize;
+		}
+		
+		this.totalPage = (int)Math.ceil((double)this.totalCnt/this.pageSize);
+		this.totalBlock = (int)Math.ceil((double)this.totalPage/this.blockSize);
+		
+		this.sNum = (this.page-1) * this.pageSize + 1;
+		this.lNum = this.page * this.pageSize;
+		
+		this.sBlock = ((this.page-1)/this.blockSize)*this.blockSize + 1;
+		this.lBlock = this.sBlock + this.blockSize-1;
+		if(this.lBlock>this.totalPage) {
+			this.lBlock = this.totalPage;
+		}
+		System.out.println(this);
+	}
 	
 }

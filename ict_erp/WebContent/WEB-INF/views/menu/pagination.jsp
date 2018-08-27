@@ -11,7 +11,6 @@ String rPath = request.getContextPath();
 		      <a class="page-link" href="<%=rPath%>/depart/departList?page=${page.sBlock-page.blockSize}" tabindex="-1">PRE</a>
 		    </li>
 		</c:if>
-		
 		<c:forEach	begin="${page.sBlock}" end="${page.lBlock}" var="p">
 			<li class="page-item ${page.page eq p ? 'active':''}"><a class="page-link" href="<%=rPath%>/depart/departList?page=${p}">${p}</a></li>
 		</c:forEach>

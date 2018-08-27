@@ -22,9 +22,12 @@
 					<td>${di.diName}</td>
 					<td>${di.diDesc}</td>
 				</tr>
-			</c:forEach>			
+			</c:forEach>
 			</tbody>
 		</table>
+		<div class="btns">
+			<button data-page="/views/depart/departInsert">부서등록</button>
+		</div>
 		<div class="page" style="text-align:center">
 			<jsp:include page="/WEB-INF/views/menu/pagination.jsp"></jsp:include>
 		</div>

@@ -50,7 +50,20 @@ public class DepartServlet extends HttpServlet {
 		doService(req,res);
 	}
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
+		String cmd = ICTUtils.getCmd(req.getRequestURI());
+		try {
+			if(cmd.equals("departInsert")) {
+				String diCode = req.getParameter("diCode");
+				String diName = req.getParameter("diName");
+				String diDesc = req.getParameter("diDesc");
+				DepartInfo di = new DepartInfo(0,diCode, diName, diDesc);
+				ds.insertDepartInfo(di);
+			}else {
+				
+			}
+		}catch(SQLException e) {
+			
+		}
 		doService(req,res);
 	}
 	

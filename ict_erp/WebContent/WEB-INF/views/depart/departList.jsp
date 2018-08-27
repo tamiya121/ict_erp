@@ -26,15 +26,7 @@
 			</tbody>
 		</table>
 		<div class="page" style="text-align:center">
-			<c:if test="${page.sBlock!=1}">
-				[<a href="<%=rPath%>/depart/departList?page=${page.sBlock-page.blockSize}">pre</a>]
-			</c:if>
-			<c:forEach	begin="${page.sBlock}" end="${page.lBlock}" var="p">
-				[<a href="<%=rPath%>/depart/departList?page=${p}">${p}</a>]
-			</c:forEach>
-			<c:if test="${page.lBlock!=page.totalPage}">
-				[<a href="<%=rPath%>/depart/departList?page=${page.sBlock+page.blockSize}">next</a>]
-			</c:if>
+			<jsp:include page="/WEB-INF/views/menu/pagination.jsp"></jsp:include>
 		</div>
 	</div>
 </div>

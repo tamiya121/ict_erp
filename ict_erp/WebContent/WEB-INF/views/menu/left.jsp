@@ -17,7 +17,7 @@ String rPath = request.getContextPath();
                     <a href="<%=rPath%>/level/levelList">사원레벨관리</a>
                 </li>
                 <li>
-                    <a href="<%=rPath%>/depart/departList">부서관리</a>
+                    <a onclick="getHtml('<%=rPath%>/depart/departList')" href="#">부서관리</a>
                 </li>
                 <li>
                     <a href="#">이력서</a>
@@ -30,3 +30,15 @@ String rPath = request.getContextPath();
                 </li>
             </ul>
         </div>
+<script>
+function getHtml(url){
+	$.ajax(
+	{
+		url:url,
+		success:function(html){
+			$('#page-content-wrapper').html(html);
+		}
+	}		
+);
+}
+</script>

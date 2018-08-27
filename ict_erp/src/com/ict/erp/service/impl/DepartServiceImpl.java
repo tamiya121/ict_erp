@@ -18,7 +18,7 @@ public class DepartServiceImpl implements DepartService {
 		ddao.setConnection(DBCon.getCon());
 		try {
 			PageInfo pi = di.getPi();
-			pi.initPage(ddao.totalCount("depart_info"),20,20);
+			pi.initPage(ddao.totalCount("depart_info"));
 			return ddao.selectDepartInfoList(di);
 		}catch(SQLException e) {
 			throw e;

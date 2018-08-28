@@ -13,25 +13,33 @@
 <div id="wrapper">
 <jsp:include page="/WEB-INF/views/menu/left.jsp" />
 	<div id="page-content-wrapper">
-		<form action="/depart/departInsert" method="post">
 		<table class="table table-bordered">
 			<tr>
+				<th>부서번호</th>
+				<td>${di.diNum}</td>
+			</tr>
+			<tr>
 				<th>부서코드</th>
-				<td><input type="text" name="diCode"></td>
+				<td>${di.diCode}</td>
 			</tr>
 			<tr>
 				<th>부서이름</th>
-				<td><input type="text" name="diName"></td>
+				<td>${di.diName}</td>
 			</tr>
 			<tr>
 				<th>부서설명</th>
-				<td><input type="text" name="diDesc"></td>
+				<td>${di.diDesc}</td>
 			</tr>
 			<tr>
-				<td colspan="2"><button>부서등록</button></td>
+				<td colspan="2">
+					<form action="/depart/departDelete" method="post">
+						<button data-page="/depart/departUpdate?diNum=${di.diNum}">부서 수정</button>
+						<button>부서삭제</button>
+						<input type="hidden" name="diNum" value="${di.diNum}">
+					</form>
+				</td>
 			</tr>
 		</table>
-		</form>
 	</div>
 </div>
 <jsp:include page="/WEB-INF/views/menu/bottom.jsp" />

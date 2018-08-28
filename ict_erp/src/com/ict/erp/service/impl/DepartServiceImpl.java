@@ -98,4 +98,16 @@ public class DepartServiceImpl implements DepartService {
 		return rMap;
 	}
 
+	@Override
+	public List<DepartInfo> getDepartInfoNonePageList(DepartInfo di) throws SQLException {
+		ddao.setConnection(DBCon.getCon());
+		try {
+			return ddao.selectDepartInfoNonePageList(di);
+		}catch(SQLException e) {
+			throw e;
+		}finally {
+			DBCon.close();
+		}
+	}
+
 }

@@ -113,4 +113,26 @@ public class DepartDAOImpl extends CommonDAOImpl implements DepartDAO {
 		}
 	}
 
+	@Override
+	public List<DepartInfo> selectDepartInfoNonePageList(DepartInfo di) throws SQLException {
+		List<DepartInfo> diList = new ArrayList<DepartInfo>();
+		String sql = "select * from depart_info order by diNum ";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				di = new DepartInfo(rs.getInt("diNum"),
+						rs.getString("diCode"),
+						rs.getString("diName"),
+						rs.getString("diDesc"));
+				diList.add(di);
+			}
+		}catch(SQLException e) {
+			throw e;
+		}finally {
+			close();
+		}
+		return diList;
+	}
+
 }

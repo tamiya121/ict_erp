@@ -9,7 +9,7 @@ import com.ict.erp.vo.MemberInfo;
 
 public interface MemberDAO extends CommonDAO {
 	public List<MemberInfo> selectMiList(MemberInfo mi) throws SQLException;
-	public MemberInfo getMemberInfo(int miNum) throws SQLException;
+	public MemberInfo selectMemberInfo(MemberInfo mi) throws SQLException;
 	public int insertMi(MemberInfo mi) throws SQLException;
 	public int updateMi(MemberInfo mi) throws SQLException;
 	public int deleteMi(MemberInfo mi) throws SQLException;

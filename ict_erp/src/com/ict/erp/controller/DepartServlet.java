@@ -58,19 +58,19 @@ public class DepartServlet extends HttpServlet {
 				String diCode = req.getParameter("diCode");
 				String diName = req.getParameter("diName");
 				String diDesc = req.getParameter("diDesc");
-				DepartInfo di = new DepartInfo(0,diCode, diName, diDesc);
+				DepartInfo di = new DepartInfo(null,diCode, diName, diDesc);
 				req.setAttribute("rMap", ds.insertDepartInfo(di));
 			}else if(cmd.equals("departUpdate")) {
 				String diNumStr = req.getParameter("diNum");
 				String diCode = req.getParameter("diCode");
 				String diName = req.getParameter("diName");
 				String diDesc = req.getParameter("diDesc");
-				DepartInfo di = new DepartInfo(Integer.parseInt(diNumStr),diCode, diName, diDesc);
+				DepartInfo di = new DepartInfo(Long.parseLong(diNumStr),diCode, diName, diDesc);
 				req.setAttribute("rMap", ds.updateDepartInfo(di));
 			}else if(cmd.equals("departDelete")) {
 				String diNumStr = req.getParameter("diNum");
 				System.out.println(diNumStr);
-				DepartInfo di = new DepartInfo(Integer.parseInt(diNumStr),null, null, null);
+				DepartInfo di = new DepartInfo(Long.parseLong(diNumStr),null, null, null);
 				req.setAttribute("rMap", ds.deleteDepartInfo(di));
 			}else {
 				

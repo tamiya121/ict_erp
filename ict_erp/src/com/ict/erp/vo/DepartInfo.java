@@ -1,7 +1,7 @@
 package com.ict.erp.vo;
 
 public class DepartInfo {
-	private int diNum;
+	private Long diNum;
 	private String diCode;
 	private String diName;
 	private String diDesc;
@@ -14,17 +14,19 @@ public class DepartInfo {
 		this.pi = pi;
 	}
 	public DepartInfo() {}
-	public DepartInfo(int diNum, String diCode, String diName, String diDesc) {
+	
+	public DepartInfo(Long diNum, String diCode, String diName, String diDesci) {
 		super();
 		this.diNum = diNum;
 		this.diCode = diCode;
 		this.diName = diName;
 		this.diDesc = diDesc;
 	}
-	public int getDiNum() {
+	
+	public Long getDiNum() {
 		return diNum;
 	}
-	public void setDiNum(int diNum) {
+	public void setDiNum(Long diNum) {
 		this.diNum = diNum;
 	}
 	public String getDiCode() {

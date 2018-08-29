@@ -1,6 +1,7 @@
 package com.ict.erp.service.impl;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,38 +26,76 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 
-	public static void main(String[] args) {
-		MemberService ms = new MemberServiceImpl();
+	@Override
+	public MemberInfo selectMi(MemberInfo mi) throws SQLException{
+		mdao.setConnection(DBCon.getCon());
 		try {
-			if(ms.selectMiList(null).size()==0) {
-				System.out.println("성공");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+			return mdao.selectMemberInfo(mi);
+		}catch(SQLException e) {
+			throw e;
+		}finally {
+			DBCon.close();
 		}
 	}
+
 	@Override
-	public MemberInfo selectMi(MemberInfo mi) {
+	public Map<String, Object> insertMi(MemberInfo mi) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		mdao.setConnection(DBCon.getCon());
+		try {
+			int cnt = mdao.insertMi(mi);
+			Map<String,Object> rMap = new HashMap<String,Object>();
+			rMap.put("cnt", cnt);
+			rMap.put("msg", "사원 등록 실패");
+			if(cnt==1) {
+				rMap.put("msg", "사원 등록 성공");
+			}
+			return rMap;
+		}catch(SQLException e) {
+			throw e;
+		}finally {
+			DBCon.close();
+		}
 	}
 
 	@Override
-	public Map<String, Object> insertMi(MemberInfo mi) {
+	public Map<String, Object> updateMi(MemberInfo mi) throws SQLException{
 		// TODO Auto-generated method stub
-		return null;
+		mdao.setConnection(DBCon.getCon());
+		try {
+			int cnt = mdao.updateMi(mi);
+			Map<String,Object> rMap = new HashMap<String,Object>();
+			rMap.put("cnt", cnt);
+			rMap.put("msg", "사원 수정 실패");
+			if(cnt==1) {
+				rMap.put("msg", "사원 수정 성공");
+			}
+			return rMap;
+		}catch(SQLException e) {
+			throw e;
+		}finally {
+			DBCon.close();
+		}
 	}
 
 	@Override
-	public Map<String, Object> updateMi(MemberInfo mi) {
+	public Map<String, Object> deleteMi(MemberInfo mi) throws SQLException{
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Map<String, Object> deleteMi(MemberInfo mi) {
-		// TODO Auto-generated method stub
-		return null;
+		mdao.setConnection(DBCon.getCon());
+		try {
+			int cnt = mdao.deleteMi(mi);
+			Map<String,Object> rMap = new HashMap<String,Object>();
+			rMap.put("cnt", cnt);
+			rMap.put("msg", "사원 삭제 실패");
+			if(cnt==1) {
+				rMap.put("msg", "사원 삭제 성공");
+			}
+			return rMap;
+		}catch(SQLException e) {
+			throw e;
+		}finally {
+			DBCon.close();
+		}
 	}
 
 }

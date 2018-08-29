@@ -24,9 +24,10 @@ public class MemberServlet extends HttpServlet {
 	private MemberService ms = new MemberServiceImpl();
 	private LevelService ls = new LevelServiceImpl();
 	private DepartService ds = new DepartServiceImpl();
+	private String uri;
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String uri = req.getRequestURI();
+		uri = req.getRequestURI();
 		String cmd = ICTUtils.getCmd(uri);
 		try {
 			if(cmd.equals("memberList")) {
@@ -34,6 +35,13 @@ public class MemberServlet extends HttpServlet {
 			}else if(cmd.equals("memberInsert")) {
 				req.setAttribute("liList", ls.getLiList(null));
 				req.setAttribute("diList", ds.getDepartInfoNonePageList(null));
+			}else if(cmd.equals("memberView")) {
+				req.setAttribute("liList", ls.getLiList(null));
+				req.setAttribute("diList", ds.getDepartInfoNonePageList(null));
+				String miNumStr = req.getParameter("miNum");
+				MemberInfo mi = new MemberInfo();
+				mi.setMiNum(Long.parseLong(miNumStr));
+				req.setAttribute("member", ms.selectMi(mi));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -41,14 +49,31 @@ public class MemberServlet extends HttpServlet {
 		doService(req,res);
 	}
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String uri = req.getRequestURI();
+		uri = req.getRequestURI();
 		String cmd = ICTUtils.getCmd(uri);
-		MemberInfo mi = ICTUtils.parse(req, MemberInfo.class);
-		System.out.println(mi);
+		req.setCharacterEncoding("utf-8");
+		try {
+			if(cmd.equals("memberInsert")) {
+				MemberInfo mi = ICTUtils.parse(req, MemberInfo.class);
+				req.setAttribute("rMap",ms.insertMi(mi));
+			}else if(cmd.equals("memberUpdate")) {
+				MemberInfo mi = ICTUtils.parse(req, MemberInfo.class);
+				req.setAttribute("rMap",ms.updateMi(mi));
+				uri = "/member/memberView";
+			}else if(cmd.equals("memberDelete")) {
+				MemberInfo mi = new MemberInfo();
+				mi.setMiNum(Long.parseLong(req.getParameter("miNum")));
+				req.setAttribute("rMap",ms.deleteMi(mi));
+				uri = "/member/memberView";
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		doService(req,res);
 	}
 	
 	public void doService(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException {
-		String uri = "/views" + req.getRequestURI();
+		uri = "/views" + uri;
 		RequestDispatcher rd = req.getRequestDispatcher(uri);
 		rd.forward(req, res);
 	}

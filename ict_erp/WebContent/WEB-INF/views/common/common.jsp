@@ -21,7 +21,7 @@ String uri = request.getRequestURI();
 </head>
 
 <script>
-	window.onload = function(){
+	window.addEventListener('load',function(){
 		var btns = document.querySelectorAll('button[data-page]');
 		for(var i=0,max=btns.length;i<max;i++){
 			btns[i].setAttribute('type','button');
@@ -29,5 +29,13 @@ String uri = request.getRequestURI();
 				location.href = this.getAttribute('data-page');
 			}
 		}
-	}
+		btns = document.querySelectorAll('button[data-action]');
+		for(var i=0,max=btns.length;i<max;i++){
+			btns[i].setAttribute('type','button');
+			btns[i].onclick = function(){
+				this.form.action = this.getAttribute('data-action');
+				this.form.submit();
+			}
+		}
+	});
 </script>

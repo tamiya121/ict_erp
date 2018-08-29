@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.ict.erp.common.ICTUtils;
 import com.ict.erp.dao.DepartDAO;
 import com.ict.erp.vo.DepartInfo;
 
@@ -24,13 +25,8 @@ public class DepartDAOImpl extends CommonDAOImpl implements DepartDAO {
 			ps.setInt(1, di.getPi().getlNum());
 			ps.setInt(2, di.getPi().getsNum());
 			rs = ps.executeQuery();
-			while(rs.next()) {
-				di = new DepartInfo(rs.getInt("diNum"),
-						rs.getString("diCode"),
-						rs.getString("diName"),
-						rs.getString("diDesc"));
-				diList.add(di);
-			}
+
+			diList = ICTUtils.parseList(rs, DepartInfo.class);
 		}catch(SQLException e) {
 			throw e;
 		}finally {
@@ -46,13 +42,7 @@ public class DepartDAOImpl extends CommonDAOImpl implements DepartDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, diNum);
 			rs = ps.executeQuery();
-			DepartInfo di = null;
-			if(rs.next()) {
-				di = new DepartInfo(rs.getInt("diNum"),
-						rs.getString("diCode"),
-						rs.getString("diName"),
-						rs.getString("diDesc"));
-			}
+			DepartInfo di = ICTUtils.parse(rs, DepartInfo.class);
 			return di;
 		}catch(SQLException e) {
 			throw e;
@@ -90,7 +80,7 @@ public class DepartDAOImpl extends CommonDAOImpl implements DepartDAO {
 			ps.setString(1, di.getDiName());
 			ps.setString(2, di.getDiCode());
 			ps.setString(3, di.getDiDesc());
-			ps.setInt(4, di.getDiNum());
+			ps.setLong(4, di.getDiNum());
 			return ps.executeUpdate();
 		}catch(SQLException e) {
 			throw e;
@@ -104,7 +94,7 @@ public class DepartDAOImpl extends CommonDAOImpl implements DepartDAO {
 		String sql = "delete from depart_info where diNum=?";
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, di.getDiNum());
+			ps.setLong(1, di.getDiNum());
 			return ps.executeUpdate();
 		}catch(SQLException e) {
 			throw e;
@@ -120,13 +110,7 @@ public class DepartDAOImpl extends CommonDAOImpl implements DepartDAO {
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			while(rs.next()) {
-				di = new DepartInfo(rs.getInt("diNum"),
-						rs.getString("diCode"),
-						rs.getString("diName"),
-						rs.getString("diDesc"));
-				diList.add(di);
-			}
+			diList = ICTUtils.parseList(rs, DepartInfo.class);
 		}catch(SQLException e) {
 			throw e;
 		}finally {

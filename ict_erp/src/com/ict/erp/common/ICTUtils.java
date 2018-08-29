@@ -2,7 +2,12 @@ package com.ict.erp.common;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +29,88 @@ public class ICTUtils {
 		return PRE_FIX + uri + SUF_FIX;
 	}
 	
+	public static <T> List<T> parseList(ResultSet rs ,Class clazz) throws SQLException {
+		ResultSetMetaData rsmd = rs.getMetaData();
+		int cnt = rsmd.getColumnCount();
+		List<T> list = new ArrayList<T>();
+		while(rs.next()) {
+			try {
+				T t = (T) clazz.newInstance();
+				Method[] methods = clazz.getMethods();
+				for(Method method : methods) {
+					String mNm = method.getName();
+					if(mNm.indexOf("set")==0) {
+						for(int i=1;i<=cnt;i++) {
+							String colNm = rsmd.getColumnLabel(i);
+							if(mNm.toUpperCase().indexOf(colNm.toUpperCase())!=-1) {
+								String colTypeNm = rsmd.getColumnTypeName(i);
+								if(colTypeNm.equals("NUMBER")) {
+									method.invoke(t, rs.getLong(colNm));
+								}else {
+									method.invoke(t, rs.getString(colNm));
+								}
+							}
+						}
+					}
+				}
+				list.add(t);
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+
+	public static <T> T parse(ResultSet rs ,Class clazz) throws SQLException {
+		ResultSetMetaData rsmd = rs.getMetaData();
+		int cnt = rsmd.getColumnCount();
+		T t = null;
+		while(rs.next()) {
+			try {
+				t = (T) clazz.newInstance();
+				Method[] methods = clazz.getMethods();
+				for(Method method : methods) {
+					String mNm = method.getName();
+					if(mNm.indexOf("set")==0) {
+						for(int i=1;i<=cnt;i++) {
+							String colNm = rsmd.getColumnLabel(i);
+							if(mNm.toUpperCase().indexOf(colNm.toUpperCase())!=-1) {
+								String colTypeNm = rsmd.getColumnTypeName(i);
+								if(colTypeNm.equals("NUMBER")) {
+									method.invoke(t, rs.getLong(colNm));
+								}else {
+									method.invoke(t, rs.getString(colNm));
+								}
+							}
+						}
+					}
+				}
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return t;
+	}
 	public static <T> T parse(HttpServletRequest req, Class clazz){
 		Map<String,String[]> pMap = req.getParameterMap();
 		Iterator<String> it = pMap.keySet().iterator();

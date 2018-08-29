@@ -28,7 +28,7 @@
 			<c:forEach items="${miList}" var="mi">
 				<tr>
 					<td>${mi.miNum}</td>
-					<td>${mi.miId}</td>
+					<td><a href="/member/memberView?miNum=${mi.miNum}">${mi.miId}</a></td>
 					<td>${mi.miName}</td>
 					<td>${mi.diCode}</td>
 					<td>${mi.diName}</td>
@@ -40,6 +40,9 @@
 			</c:forEach>
 			</tbody>
 		</table>
+		<div>
+			<button data-page="/member/memberInsert">사원등록</button>
+		</div>
 	</div>
 </div>
 <jsp:include page="/WEB-INF/views/menu/bottom.jsp" />

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ict.erp.common.ICTUtils;
+import com.ict.erp.common.ServiceFactory;
 import com.ict.erp.service.DepartService;
 import com.ict.erp.service.impl.DepartServiceImpl;
 import com.ict.erp.vo.DepartInfo;
@@ -26,7 +27,9 @@ public class DepartServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String cmd = ICTUtils.getCmd(req.getRequestURI());
+		DepartService ds = (DepartService) ServiceFactory.getService("DepartService");
 		try {
+			res.getWriter();
 			if(cmd.equals("departList")) {
 				String pageStr = req.getParameter("page");
 				if(pageStr==null || pageStr.equals("")) {

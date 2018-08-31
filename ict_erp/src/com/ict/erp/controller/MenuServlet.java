@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,11 @@ public class MenuServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		try {
 			if(cmd.equals("menuList")) {
-				pw.println(ms.selectMenuList(null));
+				if(request.getParameterMap().isEmpty()) {
+					System.out.println("파람 없음");
+				}
+				request.setAttribute("menuList", ms.selectMenuList(null));
+				doService(request,response); 
 			}else if(cmd.equals("menuView")) {
 				String meiNumStr = request.getParameter("meiNum");
 				if(meiNumStr==null || meiNumStr.equals("")) {
@@ -65,6 +70,11 @@ public class MenuServlet extends HttpServlet {
 			pw.print("야 에러 났어!");
 			pw.print("에러 이유는 : " + e);
 		}
+	}
+	
+	private void doService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("/views" + uri);
+		rd.forward(request, response);
 	}
 	
 }

@@ -12,6 +12,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.dbutils.BeanProcessor;
+
 public class ICTUtils {
 	private static final String PRE_FIX = "/WEB-INF";
 	private static final String SUF_FIX = ".jsp";
@@ -45,7 +47,15 @@ public class ICTUtils {
 							if(mNm.toUpperCase().indexOf(colNm.toUpperCase())!=-1) {
 								String colTypeNm = rsmd.getColumnTypeName(i);
 								if(colTypeNm.equals("NUMBER")) {
-									method.invoke(t, rs.getLong(colNm));
+
+									Class<?>[] types = method.getParameterTypes();
+									System.out.println(types[0]);
+									
+									if(types[0].getTypeName().equalsIgnoreCase("java.lang.Long")) {
+										method.invoke(t, rs.getLong(colNm));
+									}else if(types[0].getTypeName().equalsIgnoreCase("java.lang.Integer")){
+										method.invoke(t, rs.getInt(colNm));
+									}
 								}else {
 									method.invoke(t, rs.getString(colNm));
 								}

@@ -51,7 +51,6 @@ public class MemberServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		uri = req.getRequestURI();
 		String cmd = ICTUtils.getCmd(uri);
-		req.setCharacterEncoding("utf-8");
 		try {
 			if(cmd.equals("memberInsert")) {
 				MemberInfo mi = ICTUtils.parse(req, MemberInfo.class);

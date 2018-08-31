@@ -1,0 +1,80 @@
+[2018-08-31 11:50:26,183]TRACE (AuthFilter.java:33):/music/musicChart
+[2018-08-31 11:50:26,194]DEBUG (AuthFilter.java:34):/music/musicChart
+[2018-08-31 11:50:26,194] INFO (AuthFilter.java:35):/music/musicChart
+[2018-08-31 11:50:26,195] WARN (AuthFilter.java:36):/music/musicChart
+[2018-08-31 11:50:26,195]ERROR (AuthFilter.java:37):/music/musicChart
+[2018-08-31 11:50:26,195]FATAL (AuthFilter.java:38):/music/musicChart
+[2018-08-31 11:50:26,251]FATAL (MusicServlet.java:39):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 11:50:26,251]FATAL (MusicServlet.java:39):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 11:50:31,799]TRACE (AuthFilter.java:33):/music/musicChart
+[2018-08-31 11:50:31,800]DEBUG (AuthFilter.java:34):/music/musicChart
+[2018-08-31 11:50:31,800] INFO (AuthFilter.java:35):/music/musicChart
+[2018-08-31 11:50:31,801] WARN (AuthFilter.java:36):/music/musicChart
+[2018-08-31 11:50:31,801]ERROR (AuthFilter.java:37):/music/musicChart
+[2018-08-31 11:50:31,801]FATAL (AuthFilter.java:38):/music/musicChart
+[2018-08-31 11:50:31,803]FATAL (MusicServlet.java:39):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 11:50:31,803]FATAL (MusicServlet.java:39):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:03:16,360]TRACE (AuthFilter.java:33):/music/musicChart
+[2018-08-31 13:03:16,369]DEBUG (AuthFilter.java:34):/music/musicChart
+[2018-08-31 13:03:16,370] INFO (AuthFilter.java:35):/music/musicChart
+[2018-08-31 13:03:16,370] WARN (AuthFilter.java:36):/music/musicChart
+[2018-08-31 13:03:16,370]ERROR (AuthFilter.java:37):/music/musicChart
+[2018-08-31 13:03:16,370]FATAL (AuthFilter.java:38):/music/musicChart
+[2018-08-31 13:03:16,428]FATAL (MusicServlet.java:39):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:03:16,428]FATAL (MusicServlet.java:39):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:03:17,127]TRACE (AuthFilter.java:33):/vendor/common.js
+[2018-08-31 13:03:17,131]DEBUG (AuthFilter.java:34):/vendor/common.js
+[2018-08-31 13:03:17,132] INFO (AuthFilter.java:35):/vendor/common.js
+[2018-08-31 13:03:17,132] WARN (AuthFilter.java:36):/vendor/common.js
+[2018-08-31 13:03:17,132]ERROR (AuthFilter.java:37):/vendor/common.js
+[2018-08-31 13:03:17,132]FATAL (AuthFilter.java:38):/vendor/common.js
+[2018-08-31 13:03:18,829]TRACE (AuthFilter.java:33):/music/musicChart
+[2018-08-31 13:03:18,831]DEBUG (AuthFilter.java:34):/music/musicChart
+[2018-08-31 13:03:18,831] INFO (AuthFilter.java:35):/music/musicChart
+[2018-08-31 13:03:18,831] WARN (AuthFilter.java:36):/music/musicChart
+[2018-08-31 13:03:18,832]ERROR (AuthFilter.java:37):/music/musicChart
+[2018-08-31 13:03:18,832]FATAL (AuthFilter.java:38):/music/musicChart
+[2018-08-31 13:03:18,836]FATAL (MusicServlet.java:39):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:03:18,836]FATAL (MusicServlet.java:39):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:03:26,900]TRACE (AuthFilter.java:33):/music/musicChart
+[2018-08-31 13:03:26,913]DEBUG (AuthFilter.java:34):/music/musicChart
+[2018-08-31 13:03:26,913] INFO (AuthFilter.java:35):/music/musicChart
+[2018-08-31 13:03:26,914] WARN (AuthFilter.java:36):/music/musicChart
+[2018-08-31 13:03:26,914]ERROR (AuthFilter.java:37):/music/musicChart
+[2018-08-31 13:03:26,914]FATAL (AuthFilter.java:38):/music/musicChart
+[2018-08-31 13:03:26,991]FATAL (MusicServlet.java:40):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:03:26,991]FATAL (MusicServlet.java:40):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:35:58,942]TRACE (AuthFilter.java:32):/
+[2018-08-31 13:35:58,949]DEBUG (AuthFilter.java:34):/
+[2018-08-31 13:35:58,949] INFO (AuthFilter.java:36):/
+[2018-08-31 13:35:58,949] WARN (AuthFilter.java:38):/
+[2018-08-31 13:35:58,949]ERROR (AuthFilter.java:40):/
+[2018-08-31 13:35:58,950]FATAL (AuthFilter.java:42):/
+[2018-08-31 13:36:03,184]TRACE (AuthFilter.java:32):/music/musicChart
+[2018-08-31 13:36:03,185]DEBUG (AuthFilter.java:34):/music/musicChart
+[2018-08-31 13:36:03,186] INFO (AuthFilter.java:36):/music/musicChart
+[2018-08-31 13:36:03,186] WARN (AuthFilter.java:38):/music/musicChart
+[2018-08-31 13:36:03,186]ERROR (AuthFilter.java:40):/music/musicChart
+[2018-08-31 13:36:03,186]FATAL (AuthFilter.java:42):/music/musicChart
+[2018-08-31 13:36:03,285]FATAL (MusicServlet.java:40):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:36:03,285]FATAL (MusicServlet.java:40):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:37:16,472]TRACE (AuthFilter.java:32):/music/musicChart
+[2018-08-31 13:37:16,482]DEBUG (AuthFilter.java:34):/music/musicChart
+[2018-08-31 13:37:16,482] INFO (AuthFilter.java:36):/music/musicChart
+[2018-08-31 13:37:16,483] WARN (AuthFilter.java:38):/music/musicChart
+[2018-08-31 13:37:16,484]ERROR (AuthFilter.java:40):/music/musicChart
+[2018-08-31 13:37:16,484]FATAL (AuthFilter.java:42):/music/musicChart
+[2018-08-31 13:37:16,548]FATAL (MusicServlet.java:40):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:37:16,548]FATAL (MusicServlet.java:40):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:38:34,320] INFO (AuthFilter.java:36):/music/musicChart
+[2018-08-31 13:38:34,329] WARN (AuthFilter.java:38):/music/musicChart
+[2018-08-31 13:38:34,329]ERROR (AuthFilter.java:40):/music/musicChart
+[2018-08-31 13:38:34,330]FATAL (AuthFilter.java:42):/music/musicChart
+[2018-08-31 13:38:34,387]FATAL (MusicServlet.java:40):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:38:34,387]FATAL (MusicServlet.java:40):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:43:18,672] INFO (AuthFilter.java:36):/music/musicChart
+[2018-08-31 13:43:18,679] WARN (AuthFilter.java:38):/music/musicChart
+[2018-08-31 13:43:18,679]ERROR (AuthFilter.java:40):/music/musicChart
+[2018-08-31 13:43:18,679]FATAL (AuthFilter.java:42):/music/musicChart
+[2018-08-31 13:43:18,739]FATAL (MusicServlet.java:40):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]
+[2018-08-31 13:43:18,739]FATAL (MusicServlet.java:40):MusicChart [mcNum=0, mcName=null, mcSinger=null, mcVendor=null, mcLike=null, mcDislike=null, mcCredat=null, mcDesc=null, tests=[1, 2]]

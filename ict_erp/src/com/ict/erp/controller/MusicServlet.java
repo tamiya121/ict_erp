@@ -65,13 +65,13 @@ public class MusicServlet extends HttpServlet {
 			log.warn(mc);
 			log.error(mc);
 			log.fatal(mc); 
-			//클라이언트의 요청이 musicList일경우(uri : localhost/music/musicList)
+			//클라이언트의 요청이 musicChart일경우(uri : localhost/music/musicChart)
 			if(cmd.equals("musicChart")) {
 				//뮤직서비스에서 music리스트를 리턴하는 함수를 호출해준다.
 				List<MusicChart> musicList = ms.selectMusicList(mc);
 				req.setAttribute("musicList", musicList);
 				//해당 리스트를 포워딩할 jsp에서 포문을 돌리며 출력해주기위해
-				//gmaeList라는 키값을 저장한다.
+				//musicList라는 키값을 저장한다.
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();

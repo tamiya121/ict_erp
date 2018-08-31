@@ -98,7 +98,7 @@ public class MusicServlet extends HttpServlet {
 		try {
 			MusicChart mc = IBean.parseRequest(req,MusicChart.class);
 			log.debug(mc);
-			//클라이언트의 요청이 musicList일경우(uri : localhost/music/musicList)
+			//클라이언트의 요청이 musicInsert일경우(uri : localhost/music/musicInsert)
 			if(cmd.equals("musicInsert")) {
 				//뮤직서비스에서 music목록을 인서트 함수를 호출해준다.
 				//cnt라는 키값으로 저장된 로우갯수를 저장한다.(1건일경우 1이여야 정상)

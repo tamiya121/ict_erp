@@ -1,10 +1,10 @@
 package com.ict.erp.common;
 
-import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,6 +28,16 @@ public class IBean {
 		try {
 			obj = (E)clazz.newInstance();
 			BeanUtils.populate(obj, req.getParameterMap());
+			return obj;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	public static <E> E parseRequest(Map<String,String> req, Class<?> clazz) throws Exception {
+		E obj;
+		try {
+			obj = (E)clazz.newInstance();
+			BeanUtils.populate(obj, req);
 			return obj;
 		} catch (Exception e) {
 			throw e;

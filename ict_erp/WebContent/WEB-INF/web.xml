@@ -8,8 +8,6 @@
     <param-name>DepartService</param-name>
     <param-value>com.ict.erp.service.impl.DepartServiceImpl</param-value>
   </context-param>
-  
-  <!-- 서블릿 셋팅 -->
   <servlet>
     <servlet-name>ViewServlet</servlet-name>
     <servlet-class>com.ict.erp.controller.ViewServlet</servlet-class>
@@ -58,9 +56,14 @@
     <servlet-name>MusicServlet</servlet-name>
     <url-pattern>/music/*</url-pattern>
   </servlet-mapping>
-  <!-- 서블릿 셋팅 -->
-  
-  <!-- 에러 페이지(404 or 500) -->
+  <servlet>
+    <servlet-name>TicketMovieServlet</servlet-name>
+    <servlet-class>com.ict.erp.controller.TicketMovieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TicketMovieServlet</servlet-name>
+    <url-pattern>/ticketMovie/*</url-pattern>
+  </servlet-mapping>
   <error-page>
     <error-code>404</error-code>
     <location>/WEB-INF/views/error/404.jsp</location>
@@ -69,31 +72,24 @@
     <error-code>500</error-code>
     <location>/WEB-INF/views/error/500.jsp</location>
   </error-page>
-  <!-- 에러 페이지(404 or 500) -->
-  
-  <!-- 권한 체크 필터 -->
   <filter>
-  	<filter-name>AuthFilter</filter-name>
-  	<filter-class>com.ict.erp.filer.AuthFilter</filter-class>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>com.ict.erp.filer.AuthFilter</filter-class>
   </filter>
   <filter-mapping>
-  	<filter-name>AuthFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <!-- 권한 체크 필터 -->
-  
-  <!-- UTF-8인코딩 필터 -->
   <filter>
-  	<filter-name>EncodingFilter</filter-name>
-  	<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
-  	<init-param>
-  		<param-name>encoding</param-name>
-  		<param-value>UTF-8</param-value>
-  	</init-param>
+    <filter-name>EncodingFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
   </filter>
   <filter-mapping>
-  	<filter-name>EncodingFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
+    <filter-name>EncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <!-- UTF-8인코딩 필터 -->
 </web-app>

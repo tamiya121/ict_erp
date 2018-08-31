@@ -19,15 +19,11 @@
         </layout>
     </appender>
     
-    
-    <logger name="com.ict.erp.controller">
-        <level value="FATAL"/>
-        <appender-ref ref="file"/>
-    </logger>
     <logger name="com.ict.erp">
-        <level value="INFO"/>
+        <level value="DEBUG"/>
         <appender-ref ref="file"/>
     </logger>
+    
     <root>
         <level value="INFO"/>
         <appender-ref ref="console"/>

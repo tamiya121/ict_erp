@@ -14,6 +14,7 @@
 <jsp:include page="/WEB-INF/views/menu/left.jsp" />
 	<div id="page-content-wrapper">
 		<form action="/member/memberInsert" method="post">
+		
 		<table class="table table-bordered">
 			<tr>
 				<th>사원아이디</th>

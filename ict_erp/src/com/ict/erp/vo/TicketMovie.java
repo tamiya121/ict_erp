@@ -4,26 +4,44 @@ public class TicketMovie {
 	private Integer tmNum;
 	private String tmName;
 	private Integer tmPrice;
-	private String tmStartDat;
-	private String tmEndDat;
+	private String tmStartdat;
+	private String tmEnddat;
 	private String tmCredat;
 	private String tmDesc;
 	private Integer tmCnt;
 	private String tmImg;
 	public TicketMovie() {}
-	public TicketMovie(Integer tmNum, String tmName, Integer tmPrice, String tmStartDat, String tmEndDat,
+	
+	public TicketMovie(Integer tmNum, String tmName, Integer tmPrice, String tmStartdat, String tmEnddat,
 			String tmCredat, String tmDesc, Integer tmCnt, String tmImg) {
 		super();
 		this.tmNum = tmNum;
 		this.tmName = tmName;
 		this.tmPrice = tmPrice;
-		this.tmStartDat = tmStartDat;
-		this.tmEndDat = tmEndDat;
+		this.tmStartdat = tmStartdat;
+		this.tmEnddat = tmEnddat;
 		this.tmCredat = tmCredat;
 		this.tmDesc = tmDesc;
 		this.tmCnt = tmCnt;
 		this.tmImg = tmImg;
 	}
+
+	public String getTmStartdat() {
+		return tmStartdat;
+	}
+
+	public void setTmStartdat(String tmStartdat) {
+		this.tmStartdat = tmStartdat;
+	}
+
+	public String getTmEnddat() {
+		return tmEnddat;
+	}
+
+	public void setTmEnddat(String tmEnddat) {
+		this.tmEnddat = tmEnddat;
+	}
+
 	public Integer getTmNum() {
 		return tmNum;
 	}
@@ -41,18 +59,6 @@ public class TicketMovie {
 	}
 	public void setTmPrice(Integer tmPrice) {
 		this.tmPrice = tmPrice;
-	}
-	public String getTmStartDat() {
-		return tmStartDat;
-	}
-	public void setTmStartDat(String tmStartDat) {
-		this.tmStartDat = tmStartDat;
-	}
-	public String getTmEndDat() {
-		return tmEndDat;
-	}
-	public void setTmEndDat(String tmEndDat) {
-		this.tmEndDat = tmEndDat;
 	}
 	public String getTmCredat() {
 		return tmCredat;
@@ -78,12 +84,12 @@ public class TicketMovie {
 	public void setTmImg(String tmImg) {
 		this.tmImg = tmImg;
 	}
+
 	@Override
 	public String toString() {
-		return "TicketMovie [tmNum=" + tmNum + ", tmName=" + tmName + ", tmPrice=" + tmPrice + ", tmStartDat="
-				+ tmStartDat + ", tmEndDat=" + tmEndDat + ", tmCredat=" + tmCredat + ", tmDesc=" + tmDesc + ", tmCnt="
+		return "TicketMovie [tmNum=" + tmNum + ", tmName=" + tmName + ", tmPrice=" + tmPrice + ", tmStartdat="
+				+ tmStartdat + ", tmEnddat=" + tmEnddat + ", tmCredat=" + tmCredat + ", tmDesc=" + tmDesc + ", tmCnt="
 				+ tmCnt + ", tmImg=" + tmImg + "]";
 	}
-	
 	
 }

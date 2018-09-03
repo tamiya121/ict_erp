@@ -23,7 +23,6 @@ import com.ict.erp.vo.PageInfo;
 )
 public class DepartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private DepartService ds = new DepartServiceImpl();
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String cmd = ICTUtils.getCmd(req.getRequestURI());
@@ -56,6 +55,7 @@ public class DepartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String cmd = ICTUtils.getCmd(req.getRequestURI());
 		req.setCharacterEncoding("utf-8");
+		DepartService ds = (DepartService) ServiceFactory.getService("DepartService");
 		try {
 			if(cmd.equals("departInsert")) {
 				String diCode = req.getParameter("diCode");

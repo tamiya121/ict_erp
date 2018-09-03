@@ -2,6 +2,7 @@ package com.ict.erp.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +21,12 @@ import org.apache.commons.logging.LogFactory;
 
 import com.ict.erp.common.IBean;
 import com.ict.erp.common.ICTUtils;
+import com.ict.erp.service.TicketMovieService;
+import com.ict.erp.service.impl.TicketMovieServiceImpl;
 import com.ict.erp.vo.TicketMovie;
 
 public class TicketMovieServlet extends HttpServlet {
-
+	private TicketMovieService ts = new TicketMovieServiceImpl();
 	private Log log = LogFactory.getLog(this.getClass());
 	private static final long serialVersionUID = 1L;
 	private String uri;
@@ -34,12 +37,20 @@ public class TicketMovieServlet extends HttpServlet {
 	private static final File TEMP_REPOSITORY = new File(System.getProperty("java.io.tmpdir"));
 	private static final String UP_PATH = "C:\\jsp_study\\workspace\\git\\ict_erp\\ict_erp\\WebContent";
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
-		res.getWriter().append("Served at: ").append(req.getContextPath());
+		uri = "/views" + req.getRequestURI();
+		String cmd = ICTUtils.getCmd(uri);
+		try {
+			if(cmd.equals("ticketMovieList")) {
+				req.setAttribute("tmList", ts.selectTicketMovieList(null));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		doService(req,res);
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		uri = req.getRequestURI();
+		uri = "/views" + req.getRequestURI();
 		String cmd = ICTUtils.getCmd(uri);
 		try {
 			if(cmd.equals("ticketMovieInsert")) {
@@ -68,13 +79,13 @@ public class TicketMovieServlet extends HttpServlet {
 					}
 				}
 				TicketMovie tm = IBean.parseRequest(params, TicketMovie.class);
-				log.debug(params);
-				log.debug(tm);
+				int cnt = ts.insertTicketMovie(tm);
+				req.setAttribute("cnt", cnt);
 			}
 		}catch(Exception e) {
 			throw new ServletException(e);
 		}
-		doGet(req, res);
+		doService(req, res);
 	}
 	private void doService(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		RequestDispatcher rd = req.getRequestDispatcher(uri);

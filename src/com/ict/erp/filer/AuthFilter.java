@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
@@ -28,21 +29,13 @@ public class AuthFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest hsr = (HttpServletRequest)request;
 		HttpSession hs = hsr.getSession();
-		//1. 트레이스
-		log.trace(hsr.getRequestURI());
-		//2. 디버그
-		log.debug(hsr.getRequestURI());
+		String uri = hsr.getRequestURI();
+		
 		//3. 인포
-		log.info(hsr.getRequestURI());
-		//4. 워닝
-		log.warn(hsr.getRequestURI());
-		//5. 에러
-		log.error(hsr.getRequestURI());
-		//6. 겁내 심각한 에러
-		log.fatal(hsr.getRequestURI()); 
-		if(hs.getAttribute("user")==null) {
+		log.info(hsr.getMethod() + ":" + hsr.getRequestURI());
+		if(hs.getAttribute("user")==null && uri.indexOf("login")==-1) {
 			// TODO 권한 처리 필요.(로그인 페이지 이동 로직 추가 필요)
-			System.out.println("너 권한 없음");
+			log.info("너 권한 없음");
 		}
 		chain.doFilter(request, response);
 	}
